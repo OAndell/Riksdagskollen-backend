@@ -5,13 +5,13 @@ import { Party } from '../party/party.interface';
 
 @Injectable()
 export class DataService {
-  private partyData: Party[] = DefaultParties;
+    private partyData: Party[] = DefaultParties;
 
-  public getPartyData(): Party[] {
-    return this.partyData;
-  }
+    public getPartyData(): Party[] {
+        return this.partyData;
+    }
 
-  public fetchWikipediaPartyData(party: PartyAbbreviation) {
-    throw 'not implemented';
-  }
+    public fetchWikipediaPartyData(party: PartyAbbreviation) {
+        throw 'not implemented';
+    }
 }

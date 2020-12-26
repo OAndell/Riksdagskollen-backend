@@ -5,15 +5,15 @@ import { PartyService } from '../service/party/party.service';
 
 @Controller('parties')
 export class PartyController {
-  constructor(private readonly partyService: PartyService) {}
+    constructor(private readonly partyService: PartyService) {}
 
-  @Get()
-  getParties(): Party[] {
-    return this.partyService.getParties();
-  }
+    @Get()
+    getParties(): Party[] {
+        return this.partyService.getParties();
+    }
 
-  @Get(':party')
-  getParty(@Param('party') party: PartyAbbreviation): Party {
-    return this.partyService.getParty(party);
-  }
+    @Get(':party')
+    getParty(@Param('party') party: PartyAbbreviation): Party {
+        return this.partyService.getParty(party);
+    }
 }

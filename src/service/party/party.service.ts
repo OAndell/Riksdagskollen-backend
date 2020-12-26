@@ -5,19 +5,13 @@ import { PartyAbbreviation } from './party.enum';
 
 @Injectable()
 export class PartyService {
-  constructor(private dataService: DataService) {}
+    constructor(private dataService: DataService) {}
 
-  getParties(): Party[] {
-    return this.dataService.getPartyData();
-  }
+    public getParties(): Party[] {
+        return this.dataService.getPartyData();
+    }
 
-  getParty(abbreviation: PartyAbbreviation): Party {
-    return this.dataService
-      .getPartyData()
-      .find(
-        (party) =>
-          party.abbreviation.toLocaleLowerCase() ===
-          abbreviation.toLocaleLowerCase(),
-      );
-  }
+    public getParty(abbreviation: PartyAbbreviation): Party {
+        return this.dataService.getPartyData().find((party) => party.abbreviation.toLocaleLowerCase() === abbreviation.toLocaleLowerCase());
+    }
 }

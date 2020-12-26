@@ -6,8 +6,8 @@ import { DataService } from './service/data/data.service';
 import { PartyService } from './service/party/party.service';
 
 @Module({
-  imports: [],
-  controllers: [AppController, PartyController],
-  providers: [AppService, PartyService, DataService],
+    imports: [],
+    controllers: [AppController, PartyController],
+    providers: [AppService, PartyService, DataService],
 })
 export class AppModule {}
