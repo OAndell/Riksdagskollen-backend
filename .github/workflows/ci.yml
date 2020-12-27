@@ -22,11 +22,11 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
   lint:
-    needs: build
+    needs: [build]
     - run: npm run lint
   test:
-    needs: build
+    needs: [build]
     - run: npm run test
   e2e: 
-    needs: test
+    needs: [test]
     - run: npm run test:e2e
