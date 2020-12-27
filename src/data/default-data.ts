@@ -50,7 +50,8 @@ export const DefaultParties: Party[] = [
         name: 'Vänsterpartiet',
         abbreviation: PartyAbbreviation.V,
         description: {
-            text: 'DESCRIPTION V',
+            text:
+                'Vänsterpartiet (V) är ett svenskt socialistiskt och feministiskt parti på ekologisk grund. Partiledare är sedan den 31 oktober 2020 Nooshi Dadgostar.',
             ideology: ['Socialism', 'Feminism', 'Grön ideologi/Ekologism', 'Euroskepticism'],
             source: 'Wikipedia',
         },
