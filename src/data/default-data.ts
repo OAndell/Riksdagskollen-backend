@@ -12,6 +12,7 @@ export const DefaultParties: Party[] = [
         },
         website: 'www.socialdemokraterna.se',
         twitter: 'socialdemokrat',
+        wikipedia: 'Socialdemokraterna_(Sverige)',
     },
     {
         name: 'Moderaterna',
@@ -23,6 +24,7 @@ export const DefaultParties: Party[] = [
         },
         website: 'www.moderaterna.se',
         twitter: 'moderaterna',
+        wikipedia: 'moderaterna',
     },
     {
         name: 'Sverigedemokraterna',
@@ -34,6 +36,7 @@ export const DefaultParties: Party[] = [
         },
         website: 'www.sd.se',
         twitter: 'sdriks',
+        wikipedia: 'Sverigedemokraterna',
     },
     {
         name: 'Centerpartiet',
@@ -45,6 +48,7 @@ export const DefaultParties: Party[] = [
         },
         website: 'www.centerpartiet.se',
         twitter: 'centerpartiet',
+        wikipedia: 'Centerpartiet',
     },
     {
         name: 'Vänsterpartiet',
@@ -57,6 +61,7 @@ export const DefaultParties: Party[] = [
         },
         website: 'www.vansterpartiet.se',
         twitter: 'vansterpartiet',
+        wikipedia: 'vänsterpartiet',
     },
     {
         name: 'Kristdemokraterna',
@@ -68,6 +73,7 @@ export const DefaultParties: Party[] = [
         },
         website: 'www.kristdemokraterna.se',
         twitter: 'kdriks',
+        wikipedia: 'Kristdemokraterna_(Sverige)',
     },
     {
         name: 'Liberalerna',
@@ -79,6 +85,7 @@ export const DefaultParties: Party[] = [
         },
         website: 'www.liberalerna.se',
         twitter: 'liberalerna',
+        wikipedia: 'liberalerna',
     },
     {
         name: 'Miljöpartiet',
@@ -90,5 +97,6 @@ export const DefaultParties: Party[] = [
         },
         website: 'www.mp.se',
         twitter: 'miljopartiet',
+        wikipedia: 'miljöpartiet',
     },
 ];

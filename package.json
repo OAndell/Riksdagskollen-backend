@@ -28,6 +28,7 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.3",
+    "superagent": "^6.1.0",
     "wikipedia": "^1.0.1"
   },
   "devDependencies": {

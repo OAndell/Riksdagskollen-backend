@@ -10,4 +10,5 @@ export interface Party {
     };
     website: string;
     twitter: string;
+    wikipedia: string;
 }
