@@ -21,17 +21,17 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      uses: actions/setup-node@v1
+    - uses: actions/setup-node@v1
     - run: npm run lint
   test:
     runs-on: ubuntu-latest
     steps:
-      uses: actions/setup-node@v1
+    - uses: actions/setup-node@v1
     - run: npm ci  
     - run: npm run test
   e2e: 
     runs-on: ubuntu-latest
     steps:
-      uses: actions/setup-node@v1
+    - uses: actions/setup-node@v1
     - run: npm ci  
     - run: npm run test:e2e
