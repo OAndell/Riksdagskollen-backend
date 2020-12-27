@@ -1,6 +1,8 @@
+import { PartyAbbreviation } from './party.enum';
+
 export interface Party {
     name: string;
-    abbreviation: string;
+    abbreviation: PartyAbbreviation;
     description: {
         text: string;
         ideology: string[];

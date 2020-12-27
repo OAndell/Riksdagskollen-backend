@@ -37,5 +37,11 @@ describe('PartyService', () => {
             const expected = DefaultParties.find((party) => party.abbreviation === PartyAbbreviation.V);
             expect(result).toEqual(expected);
         });
+
+        it('should be case insensitive', () => {
+            const result = partyService.getParty('kD');
+            const expected = DefaultParties.find((party) => party.abbreviation === PartyAbbreviation.KD);
+            expect(result).toEqual(expected);
+        });
     });
 });
