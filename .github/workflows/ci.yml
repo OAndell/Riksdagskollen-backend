@@ -22,16 +22,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
     - run: npm run lint
   test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
     - run: npm ci  
     - run: npm run test
   e2e: 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
     - run: npm ci  
     - run: npm run test:e2e
