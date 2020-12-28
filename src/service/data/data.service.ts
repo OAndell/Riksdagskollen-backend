@@ -42,9 +42,10 @@ export class DataService {
                     case DataFetchOption.SUMMARY:
                         party.description.text = intro;
                         break;
-                    default:
+                    case DataFetchOption.FETCH_ALL:
                         party.description.text = intro;
                         party.description.ideology = infoBox.ideologi;
+                        break;
                 }
                 party.description.source = 'Wikipedia';
             });

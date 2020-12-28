@@ -9,7 +9,7 @@ export const DefaultParties: Party[] = [
             text: 'DESCRIPTION S',
             ideology: ['Demokratisk socialism', 'Socialdemokrati', 'Tredje vägens politik', 'Feminism'],
             source: 'Wikipedia',
-            fetchOption: DataFetchOption.FETCH_ALL,
+            fetchOption: DataFetchOption.SUMMARY,
         },
         website: 'www.socialdemokraterna.se',
         twitter: 'socialdemokrat',
