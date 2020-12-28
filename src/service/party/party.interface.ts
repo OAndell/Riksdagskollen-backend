@@ -1,4 +1,4 @@
-import { PartyAbbreviation } from './party.enum';
+import { DataFetchOption, PartyAbbreviation } from './party.enum';
 
 export interface Party {
     name: string;
@@ -7,6 +7,7 @@ export interface Party {
         text: string;
         ideology: string[];
         source: string;
+        fetchOption: DataFetchOption;
     };
     website: string;
     twitter: string;

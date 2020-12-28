@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { forkJoin, from } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
 import wiki from 'wikipedia';
-
 import { DefaultParties } from '../../data/default-data';
+import { DataFetchOption } from '../party/party.enum';
 import { Party } from '../party/party.interface';
-import { selectIdeologies } from './data.service.util';
+
 @Injectable()
 export class DataService {
     private partyData: Party[] = DefaultParties;
@@ -38,9 +38,15 @@ export class DataService {
                 }),
             )
             .subscribe(([intro, infoBox]) => {
-                party.description.text = intro;
+                switch (party.description.fetchOption) {
+                    case DataFetchOption.SUMMARY:
+                        party.description.text = intro;
+                        break;
+                    default:
+                        party.description.text = intro;
+                        party.description.ideology = infoBox.ideologi;
+                }
                 party.description.source = 'Wikipedia';
-                //TODO ideologies ( and more ? )
             });
     }
 }
