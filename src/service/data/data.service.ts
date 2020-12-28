@@ -30,24 +30,25 @@ export class DataService {
     }
 
     private fetchWikipediaPartyData(party: Party): void {
-        from(wiki.page(party.wikipedia))
-            .pipe(
-                mergeMap((page) => {
-                    const infoText$ = from(page.intro()).pipe(map((text) => text.split('\n')[0]));
-                    return forkJoin([infoText$, from(page.infobox())]);
-                }),
-            )
-            .subscribe(([intro, infoBox]) => {
-                switch (party.description.fetchOption) {
-                    case DataFetchOption.SUMMARY:
-                        party.description.text = intro;
-                        break;
-                    case DataFetchOption.FETCH_ALL:
-                        party.description.text = intro;
-                        party.description.ideology = infoBox.ideologi;
-                        break;
-                }
-                party.description.source = 'Wikipedia';
-            });
+        const wikiInfo$ = from(wiki.page(party.wikipedia)).pipe(
+            mergeMap((page) => {
+                const introText$ = from(page.intro()).pipe(map((text) => text.split('\n')[0]));
+                const infoBox$ = from(page.infobox());
+                return forkJoin([introText$, infoBox$]);
+            }),
+        );
+
+        wikiInfo$.subscribe(([intro, infoBox]) => {
+            switch (party.description.fetchOption) {
+                case DataFetchOption.SUMMARY:
+                    party.description.text = intro;
+                    break;
+                case DataFetchOption.FETCH_ALL:
+                    party.description.text = intro;
+                    party.description.ideology = infoBox.ideologi;
+                    break;
+            }
+            party.description.source = 'Wikipedia';
+        });
     }
 }
