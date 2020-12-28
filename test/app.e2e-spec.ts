@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
 
-describe('AppController (e2e)', () => {
+describe('(e2e)', () => {
     let app: INestApplication;
 
     beforeEach(async () => {
@@ -17,5 +17,13 @@ describe('AppController (e2e)', () => {
 
     it('/ (GET)', () => {
         return request(app.getHttpServer()).get('/').expect(200).expect('Riksdagskollen Backend!');
+    });
+
+    it('/parties (GET) should be 200', () => {
+        return request(app.getHttpServer()).get('/parties').expect(200);
+    });
+
+    it('/parties/:id (GET) should be 200', () => {
+        return request(app.getHttpServer()).get('/parties/m').expect(200);
     });
 });

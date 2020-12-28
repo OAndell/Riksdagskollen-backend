@@ -8,3 +8,8 @@ export enum PartyAbbreviation {
     L = 'L',
     MP = 'MP',
 }
+
+export enum DataFetchOption {
+    FETCH_ALL = 'fetchAll',
+    SUMMARY = 'summary',
+}
