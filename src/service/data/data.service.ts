@@ -18,18 +18,18 @@ export class DataService {
         return this.partyData;
     }
 
-    private async initializeData() {
+    private async initializeData(): Promise<void> {
         await wiki.setLang('sv');
         this.fetchWikiData();
     }
 
-    private fetchWikiData() {
+    private fetchWikiData(): void {
         this.partyData.forEach((party) => {
             this.fetchWikipediaPartyData(party);
         });
     }
 
-    private fetchWikipediaPartyData(party: Party) {
+    private fetchWikipediaPartyData(party: Party): void {
         from(wiki.page(party.wikipedia))
             .pipe(
                 mergeMap((page) => {
@@ -39,6 +39,7 @@ export class DataService {
             )
             .subscribe(([intro, infoBox]) => {
                 party.description.text = intro;
+                party.description.source = 'Wikipedia';
                 //TODO ideologies ( and more ? )
             });
     }
