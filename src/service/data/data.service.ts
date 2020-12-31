@@ -3,7 +3,7 @@ import { forkJoin, from } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
 import wiki from 'wikipedia';
 
-import { DefaultParties } from '../../data/default-data';
+import { DefaultParties, getDefaultPollingData } from '../../data/default-data';
 import { DataFetchOption, PartyAbbreviation } from './data.service.enum';
 import { Party } from './data.service.interface';
 import { PartyPollingData } from './data.service.interface';
@@ -12,7 +12,7 @@ import { fetchMeanPollingData } from './data.util';
 @Injectable()
 export class DataService {
     private partyData: Party[] = [...DefaultParties];
-    private pollingData!: Map<PartyAbbreviation, PartyPollingData>;
+    private pollingData: Map<PartyAbbreviation, PartyPollingData> = getDefaultPollingData();
 
     constructor() {
         this.initializeData();

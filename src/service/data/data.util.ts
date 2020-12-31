@@ -8,11 +8,11 @@ import { PartyPollingData } from './data.service.interface';
 import { getDefaultPollingData } from '../../data/default-data';
 import { DataSourceURL, PartyAbbreviation } from './data.service.enum';
 
-function formatCellText(cellValue: string): string {
+export function formatCellText(cellValue: string): string {
     return cellValue.replace(/\s+/g, ' ').trim();
 }
 
-function mapMeanPollDataHTML(response: any): Map<PartyAbbreviation, PartyPollingData> {
+export function mapMeanPollDataHTML(response: any): Map<PartyAbbreviation, PartyPollingData> {
     //Extract meanValue table
     const pollingDataMap = _.cloneDeep(getDefaultPollingData());
     const html_code = response['parse']['text']['*'];
@@ -29,12 +29,12 @@ function mapMeanPollDataHTML(response: any): Map<PartyAbbreviation, PartyPolling
     });
 
     //Map period and percent to party
-    for (let index = 3; index < meanValueTable.length; index++) {
-        const cells = [...meanValueTable[index].cells];
+    for (let rowIndex = 3; rowIndex < meanValueTable.length; rowIndex++) {
+        const cells = [...meanValueTable[rowIndex].cells];
         const period = formatCellText(cells[0].textContent);
-        for (let i = 1; i < cells.length; i++) {
-            const cellValue = formatCellText(cells[i].textContent);
-            const partyAbbr = partyIndexes.get(i) as PartyAbbreviation;
+        for (let cellIndex = 1; cellIndex < cells.length; cellIndex++) {
+            const cellValue = formatCellText(cells[cellIndex].textContent);
+            const partyAbbr = partyIndexes.get(cellIndex) as PartyAbbreviation;
             if (pollingDataMap.has(partyAbbr)) {
                 pollingDataMap.get(partyAbbr).data.push({
                     period,

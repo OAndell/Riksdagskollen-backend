@@ -26,4 +26,12 @@ describe('(e2e)', () => {
     it('/parties/:id (GET) should be 200', () => {
         return request(app.getHttpServer()).get('/parties/m').expect(200);
     });
+
+    it('/polling (GET) should be 200', () => {
+        return request(app.getHttpServer()).get('/polling').expect(200);
+    });
+
+    it('/polling:id (GET) should be 200', () => {
+        return request(app.getHttpServer()).get('/polling/v').expect(200);
+    });
 });
