@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { PartyPollingData } from 'src/service/data/data.service.interface';
-import { PollingService } from 'src/service/polling/polling.service';
+import { PartyPollingData } from '../service/data/data.service.interface';
+import { PollingService } from '../service/polling/polling.service';
 
 @Controller('polling')
 export class PollingController {

@@ -1,6 +1,5 @@
-import { PartyPollingData } from 'src/service/data/data.service.interface';
-import { DataFetchOption, PartyAbbreviation } from '../service/party/party.enum';
-import { Party } from '../service/party/party.interface';
+import { PartyPollingData, Party } from '../service/data/data.service.interface';
+import { DataFetchOption, PartyAbbreviation } from '../service/data/data.service.enum';
 
 export const DefaultParties: Party[] = [
     {

@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { Party } from '../service/party/party.interface';
+import { Party } from '../service/data/data.service.interface';
 import { PartyService } from '../service/party/party.service';
 
 @Controller('parties')

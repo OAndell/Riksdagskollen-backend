@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { DataService } from '../data/data.service';
 import { PartyPollingData } from '../data/data.service.interface';
-import { PartyAbbreviation } from '../party/party.enum';
+import { PartyAbbreviation } from '../data/data.service.enum';
 @Injectable()
 export class PollingService {
     constructor(private dataService: DataService) {}

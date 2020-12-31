@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Party } from './party.interface';
+import { Party } from '../data/data.service.interface';
 import { DataService } from '../data/data.service';
 @Injectable()
 export class PartyService {

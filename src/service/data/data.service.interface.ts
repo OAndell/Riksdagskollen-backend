@@ -1,4 +1,4 @@
-import { PartyAbbreviation } from '../party/party.enum';
+import { DataFetchOption, PartyAbbreviation } from './data.service.enum';
 
 export interface PartyPollingData {
     party: PartyAbbreviation;
@@ -9,4 +9,17 @@ export interface PartyPollingData {
 export interface PollingDataPoint {
     period: string;
     percent: string;
+}
+export interface Party {
+    name: string;
+    abbreviation: PartyAbbreviation;
+    description: {
+        text: string;
+        ideology: string[];
+        source: string;
+        fetchOption: DataFetchOption;
+    };
+    website: string;
+    twitter: string;
+    wikipedia: string;
 }
