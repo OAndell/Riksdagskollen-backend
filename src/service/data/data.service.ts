@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { forkJoin, from } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
+import { ConstructorOptions, JSDOM } from 'jsdom';
 import fetch from 'node-fetch';
 import wiki from 'wikipedia';
 
 import { DefaultParties, getDefaultPollingData } from '../../data/default-data';
 import { DataFetchOption, PartyAbbreviation } from '../party/party.enum';
 import { Party } from '../party/party.interface';
-import { JSDOM } from 'JSDOM';
 import { PartyPollingData } from './data.service.interface';
 
 @Injectable()
@@ -48,7 +48,7 @@ export class DataService {
             .pipe(mergeMap((response: any) => response.json()))
             .subscribe((response) => {
                 const html_code = response['parse']['text']['*'];
-                const dom = new JSDOM(html_code, 'text/html');
+                const dom = new JSDOM(html_code, 'text/html' as ConstructorOptions );
                 const tables: NodeList = dom.window.document.querySelectorAll('.wikitable');
                 const tablesSpread = [...tables] as HTMLTableElement[];
                 const meanValueTable = [...tablesSpread[0].rows];
