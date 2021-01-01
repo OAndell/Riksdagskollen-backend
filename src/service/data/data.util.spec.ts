@@ -1,4 +1,4 @@
-import { PartyAbbreviation } from './data.service.enum';
+import { DataSourceURL, PartyAbbreviation } from './data.service.enum';
 import { formatCellText, mapMeanPollDataHTML } from './data.util';
 
 const html = `
@@ -102,6 +102,20 @@ describe('data.util', () => {
             expect(result.get(PartyAbbreviation.L).data[0]).toEqual({
                 percent: '2,80 %',
                 period: 'December 2020',
+            });
+        });
+
+        it('should add source URL', () => {
+            const mockData = {
+                parse: {
+                    text: {
+                        '*': html,
+                    },
+                },
+            };
+            const result = mapMeanPollDataHTML(mockData);
+            [...result.values()].forEach((value) => {
+                expect(value.source).toEqual(DataSourceURL.POLLING_DATA_URL);
             });
         });
     });

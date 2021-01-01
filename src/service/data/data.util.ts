@@ -43,11 +43,12 @@ export function mapMeanPollDataHTML(response: any): Map<PartyAbbreviation, Party
             }
         }
     }
+    [...pollingDataMap.values()].forEach((value) => (value.source = DataSourceURL.POLLING_DATA_URL));
     return pollingDataMap;
 }
 
 export function fetchMeanPollingData(): Observable<Map<PartyAbbreviation, PartyPollingData>> {
-    return from(fetch(DataSourceURL.POLLING_DATA)).pipe(
+    return from(fetch(DataSourceURL.POLLING_DATA_API)).pipe(
         mergeMap((response: any) => response.json()),
         map(mapMeanPollDataHTML),
     );
