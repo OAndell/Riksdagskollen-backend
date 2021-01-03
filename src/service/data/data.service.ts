@@ -2,13 +2,17 @@ import { Injectable } from '@nestjs/common';
 import { forkJoin, from } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
 import wiki from 'wikipedia';
-import { DefaultParties } from '../../data/default-data';
-import { DataFetchOption } from '../party/party.enum';
-import { Party } from '../party/party.interface';
+
+import { DefaultParties, getDefaultPollingData } from '../../data/default-data';
+import { DataFetchOption, PartyAbbreviation } from './data.service.enum';
+import { Party } from './data.service.interface';
+import { PartyPollingData } from './data.service.interface';
+import { fetchMeanPollingData } from './data.util';
 
 @Injectable()
 export class DataService {
-    private partyData: Party[] = DefaultParties;
+    private partyData: Party[] = [...DefaultParties];
+    private pollingData: Map<PartyAbbreviation, PartyPollingData> = getDefaultPollingData();
 
     constructor() {
         this.initializeData();
@@ -18,15 +22,20 @@ export class DataService {
         return this.partyData;
     }
 
-    private async initializeData(): Promise<void> {
-        await wiki.setLang('sv');
+    public getPollingData(): Map<PartyAbbreviation, PartyPollingData> {
+        return this.pollingData;
+    }
+
+    private initializeData(): void {
         this.fetchWikiData();
     }
 
-    private fetchWikiData(): void {
+    private async fetchWikiData(): Promise<void> {
+        await wiki.setLang('sv');
         this.partyData.forEach((party) => {
             this.fetchWikipediaPartyData(party);
         });
+        fetchMeanPollingData().subscribe((pollingData) => (this.pollingData = pollingData));
     }
 
     private fetchWikipediaPartyData(party: Party): void {

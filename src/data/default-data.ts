@@ -1,5 +1,5 @@
-import { DataFetchOption, PartyAbbreviation } from '../service/party/party.enum';
-import { Party } from '../service/party/party.interface';
+import { PartyPollingData, Party } from '../service/data/data.service.interface';
+import { DataFetchOption, PartyAbbreviation } from '../service/data/data.service.enum';
 
 export const DefaultParties: Party[] = [
     {
@@ -108,3 +108,48 @@ export const DefaultParties: Party[] = [
         wikipedia: 'miljöpartiet',
     },
 ];
+
+export function getDefaultPollingData(): Map<PartyAbbreviation, PartyPollingData> {
+    const pollingMap = new Map<PartyAbbreviation, PartyPollingData>();
+    pollingMap.set(PartyAbbreviation.S, {
+        party: PartyAbbreviation.S,
+        data: [],
+        source: '',
+    });
+    pollingMap.set(PartyAbbreviation.M, {
+        party: PartyAbbreviation.M,
+        data: [],
+        source: '',
+    });
+    pollingMap.set(PartyAbbreviation.SD, {
+        party: PartyAbbreviation.SD,
+        data: [],
+        source: '',
+    });
+    pollingMap.set(PartyAbbreviation.C, {
+        party: PartyAbbreviation.C,
+        data: [],
+        source: '',
+    });
+    pollingMap.set(PartyAbbreviation.V, {
+        party: PartyAbbreviation.V,
+        data: [],
+        source: '',
+    });
+    pollingMap.set(PartyAbbreviation.KD, {
+        party: PartyAbbreviation.KD,
+        data: [],
+        source: '',
+    });
+    pollingMap.set(PartyAbbreviation.L, {
+        party: PartyAbbreviation.L,
+        data: [],
+        source: '',
+    });
+    pollingMap.set(PartyAbbreviation.MP, {
+        party: PartyAbbreviation.MP,
+        data: [],
+        source: '',
+    });
+    return pollingMap;
+}

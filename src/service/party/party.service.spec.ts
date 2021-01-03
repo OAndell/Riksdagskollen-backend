@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { DefaultParties } from '../../data/default-data';
 import { DataService } from '../data/data.service';
-import { PartyAbbreviation } from './party.enum';
+import { PartyAbbreviation } from '../data/data.service.enum';
 import { PartyService } from './party.service';
 
 describe('PartyService', () => {
