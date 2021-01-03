@@ -15,13 +15,13 @@ export function formatCellText(cellValue: string): string {
 export function mapMeanPollDataHTML(response: any): Map<PartyAbbreviation, PartyPollingData> {
     //Extract meanValue table
     const pollingDataMap = _.cloneDeep(getDefaultPollingData());
-    const html_code = response['parse']['text']['*'];
-    const dom = new JSDOM(html_code, 'text/html' as ConstructorOptions);
+    const html = response['parse']['text']['*'];
+    const dom = new JSDOM(html, 'text/html' as ConstructorOptions);
     const tables: NodeList = dom.window.document.querySelectorAll('.wikitable');
     const tablesSpread = [...tables] as HTMLTableElement[];
     const meanValueTable = [...tablesSpread[0].rows];
 
-    //Extract map table index to party
+    //Map table index to party
     const partyIndexes = new Map<number, string>();
     const partyIndexRow = [...meanValueTable[1].cells];
     partyIndexRow.forEach((cell, index) => {
@@ -43,7 +43,7 @@ export function mapMeanPollDataHTML(response: any): Map<PartyAbbreviation, Party
             }
         }
     }
-    [...pollingDataMap.values()].forEach((value) => (value.source = DataSourceURL.POLLING_DATA_URL));
+    [...pollingDataMap.values()].forEach((partyPollingData) => (partyPollingData.source = DataSourceURL.POLLING_DATA_URL));
     return pollingDataMap;
 }
 
