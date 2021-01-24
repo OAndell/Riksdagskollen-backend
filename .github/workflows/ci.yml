@@ -39,3 +39,10 @@ jobs:
     - uses: actions/checkout@v2
     - run: npm ci  
     - run: npm run test:e2e
+  start_prod: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
+    - run: npm run deploy
+  
