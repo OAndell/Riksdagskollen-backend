@@ -22,4 +22,7 @@ export interface Party {
     website: string;
     twitter: string;
     wikipedia: string;
+    color: string;
+    electionResult: string;
+    seats: number;
 }
