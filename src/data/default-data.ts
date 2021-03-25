@@ -14,6 +14,9 @@ export const DefaultParties: Party[] = [
         website: 'www.socialdemokraterna.se',
         twitter: 'socialdemokrat',
         wikipedia: 'Socialdemokraterna_(Sverige)',
+        color: '#ed1b34',
+        electionResult: '28.26%',
+        seats: 100,
     },
     {
         name: 'Moderaterna',
@@ -27,6 +30,9 @@ export const DefaultParties: Party[] = [
         website: 'www.moderaterna.se',
         twitter: 'moderaterna',
         wikipedia: 'moderaterna',
+        color: '#0d9ddb',
+        electionResult: '19,84%',
+        seats: 70,
     },
     {
         name: 'Sverigedemokraterna',
@@ -40,6 +46,9 @@ export const DefaultParties: Party[] = [
         website: 'www.sd.se',
         twitter: 'sdriks',
         wikipedia: 'Sverigedemokraterna',
+        color: '#DDDD00',
+        electionResult: '17,53%',
+        seats: 62,
     },
     {
         name: 'Centerpartiet',
@@ -53,6 +62,9 @@ export const DefaultParties: Party[] = [
         website: 'www.centerpartiet.se',
         twitter: 'centerpartiet',
         wikipedia: 'Centerpartiet',
+        color: '#046a38',
+        electionResult: '8,61%',
+        seats: 31,
     },
     {
         name: 'Vänsterpartiet',
@@ -67,6 +79,9 @@ export const DefaultParties: Party[] = [
         website: 'www.vansterpartiet.se',
         twitter: 'vansterpartiet',
         wikipedia: 'vänsterpartiet',
+        color: '#ED1C24',
+        electionResult: '8,00%',
+        seats: 28,
     },
     {
         name: 'Kristdemokraterna',
@@ -80,6 +95,9 @@ export const DefaultParties: Party[] = [
         website: 'www.kristdemokraterna.se',
         twitter: 'kdriks',
         wikipedia: 'Kristdemokraterna_(Sverige)',
+        color: '#005ea1',
+        electionResult: '6,32%',
+        seats: 22,
     },
     {
         name: 'Liberalerna',
@@ -93,6 +111,9 @@ export const DefaultParties: Party[] = [
         website: 'www.liberalerna.se',
         twitter: 'liberalerna',
         wikipedia: 'liberalerna',
+        color: '#006ab3',
+        electionResult: '5,49%',
+        seats: 20,
     },
     {
         name: 'Miljöpartiet',
@@ -106,6 +127,9 @@ export const DefaultParties: Party[] = [
         website: 'www.mp.se',
         twitter: 'miljopartiet',
         wikipedia: 'miljöpartiet',
+        color: '#53a045',
+        electionResult: '4,41%',
+        seats: 16,
     },
 ];
 
