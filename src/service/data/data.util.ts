@@ -23,7 +23,7 @@ export function mapMeanPollDataHTML(response: any): Map<PartyAbbreviation, Party
 
     //Map table index to party
     const partyIndexes = new Map<number, string>();
-    const partyIndexRow = [...meanValueTable[1].cells];
+    const partyIndexRow = [...meanValueTable[2].cells];
     partyIndexRow.forEach((cell, index) => {
         partyIndexes.set(index + 1, cell.textContent.trim());
     });
@@ -35,7 +35,7 @@ export function mapMeanPollDataHTML(response: any): Map<PartyAbbreviation, Party
         for (let cellIndex = 1; cellIndex < cells.length; cellIndex++) {
             const cellValue = formatCellText(cells[cellIndex].textContent);
             const partyAbbr = partyIndexes.get(cellIndex) as PartyAbbreviation;
-            if (pollingDataMap.has(partyAbbr)) {
+            if (pollingDataMap.has(partyAbbr) && period !== "" && cellValue !== "") {
                 pollingDataMap.get(partyAbbr).data.push({
                     period,
                     percent: cellValue,
